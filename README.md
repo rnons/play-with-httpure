@@ -1,5 +1,5 @@
 ```
 bower install
 pulp build
-node server
+node server.js
 ```

@@ -33,6 +33,13 @@ renderTab =
     H.ul $
       for_ tabs \tab ->
         H.li $ text tab.text
+    when true $
+      H.p
+      ! HA.className "cls"
+      ! HA.style "color: blue"
+      $ text "visible content"
+    when false $
+      H.p $ text "invisible content"
 
 homepage :: Html
 homepage = H.html ! HA.lang "en" $ do
@@ -46,5 +53,5 @@ router _                       = HTTPure.notFound
 
 -- | Boot up the server
 main :: HTTPure.ServerM
-main = HTTPure.serve 8000 router do
+main = HTTPure.serve 8080 router do
   Console.log $ "Server now up on port 8080"
