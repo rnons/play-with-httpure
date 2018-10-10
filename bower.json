@@ -18,6 +18,7 @@
   "dependencies": {
     "purescript-httpure": "^0.7.1",
     "purescript-console": "^4.1.0",
-    "purescript-template-strings": "https://github.com/amankasliwal/purescript-template-strings.git#c7113ec0683c9c35516c9a575e7961f04a18ba4a"
+    "purescript-template-strings": "https://github.com/amankasliwal/purescript-template-strings.git#c7113ec0683c9c35516c9a575e7961f04a18ba4a",
+    "purescript-smolder": "^11.0.1"
   }
 }

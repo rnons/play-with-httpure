@@ -2,30 +2,49 @@ module Main where
 
 import Prelude
 
+import Data.Foldable (for_)
 import Effect.Console as Console
 import HTTPure as HTTPure
-import Data.TemplateString.Unsafe ((<~>))
+import Text.Smolder.HTML as H
+import Text.Smolder.HTML.Attributes as HA
+import Text.Smolder.Markup ((!), text)
+import Text.Smolder.Renderer.String (render)
 
-renderTab :: Int -> String
-renderTab n = "Tab: " <> show n
-
-type IndexContext =
-  { tab :: String
+type Tab =
+  { id :: Int
+  , text :: String
   }
 
-renderIndex :: IndexContext -> String
-renderIndex = (<~>) """
-index page
-${tab}
-"""
+type Html = H.Html Unit
+
+tabs :: Array Tab
+tabs =
+  [ { id: 1
+    , text: "Home"
+    }
+  , { id: 2
+    , text: "About"
+    }
+  ]
+
+renderTab :: Html
+renderTab =
+  H.div $ do
+    H.ul $
+      for_ tabs \tab ->
+        H.li $ text tab.text
+
+homepage :: Html
+homepage = H.html ! HA.lang "en" $ do
+  renderTab
 
 router :: HTTPure.Request -> HTTPure.ResponseM
 router { path: [] }   =
-  HTTPure.ok $ renderIndex { tab: renderTab 1 }
+  HTTPure.ok $ render homepage
 router { path: [ "hello" ] }   = HTTPure.ok "hello"
 router _                       = HTTPure.notFound
 
 -- | Boot up the server
 main :: HTTPure.ServerM
-main = HTTPure.serve 8080 router do
+main = HTTPure.serve 8000 router do
   Console.log $ "Server now up on port 8080"
