@@ -5,6 +5,7 @@ import Prelude
 import Data.Foldable (for_)
 import Effect.Console as Console
 import HTTPure as HTTPure
+import Item as Item
 import Text.Smolder.HTML as H
 import Text.Smolder.HTML.Attributes as HA
 import Text.Smolder.Markup ((!), text)
@@ -44,6 +45,8 @@ renderTab =
 homepage :: Html
 homepage = H.html ! HA.lang "en" $ do
   renderTab
+  Item.render { id: 1, text: "item from backend" }
+  H.script ! HA.src "http://localhost:8081/Index.js" $ text ""
 
 router :: HTTPure.Request -> HTTPure.ResponseM
 router { path: [] }   =

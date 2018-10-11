@@ -1,0 +1,20 @@
+{
+  "name": "play-with-httpure",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:rnons/play-with-httpure.git",
+  "author": "Ping Chen <remotenonsense@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --progress"
+  },
+  "devDependencies": {
+    "@types/node": "^10.11.7",
+    "ts-loader": "^5.2.1",
+    "typescript": "^3.1.2",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  }
+}
