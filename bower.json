@@ -16,10 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "purescript-httpure": "^0.7.1",
-    "purescript-console": "^4.1.0",
-    "purescript-smolder": "^11.0.1",
-    "purescript-smolder-dom": "https://github.com/rnons/purescript-smolder-dom.git#2751ab90ee69c380116dba9880b940aa81da463f",
-    "purescript-web-html": "^1.2.0"
+    "purescript-httpure": "https://github.com/cprussin/purescript-httpure.git#d333c6f6b3872fd9ec6b732906d76d39738a9c35",
+    "purescript-console": "^4.1.0"
   }
 }
